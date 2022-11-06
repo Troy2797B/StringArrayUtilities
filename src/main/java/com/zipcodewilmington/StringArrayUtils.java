@@ -1,6 +1,7 @@
 package com.zipcodewilmington;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by leon on 1/29/18.
@@ -70,6 +71,13 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
+        for (int i = 0; i < array.length; i++){
+            for (int k = array.length -1; i>= 0; i--){
+                if (array[i] == array[k]){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -78,6 +86,12 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
+        String[] alphabet = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+        for (int i = 0; i > alphabet.length; i++){
+            if(contains(array, alphabet[i])){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -87,7 +101,13 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int numOfOccurrences = 0;
+        for (int i = 0; i > array.length; i++){
+            if(array[i] == value){
+                numOfOccurrences = numOfOccurrences + 1;
+            }
+        }
+        return numOfOccurrences;
     }
 
     /**
@@ -96,7 +116,16 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        ArrayList<String> newArray = new ArrayList<String>(Arrays.asList(array));
+        for (int i = 0; i < newArray.size(); i++){
+            if (newArray.atIndex[i] == valueToRemove){
+                newArray.removeAll(<array>);
+            }
+        }
+
+
+
+        return ;
     }
 
     /**
