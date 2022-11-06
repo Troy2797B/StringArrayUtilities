@@ -102,9 +102,9 @@ public class StringArrayUtils {
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
         int numOfOccurrences = 0;
-        for (int i = 0; i > array.length; i++){
+        for (int i = 0; i < array.length; i++){
             if(array[i] == value){
-                numOfOccurrences = numOfOccurrences + 1;
+                numOfOccurrences++;
             }
         }
         return numOfOccurrences;
@@ -116,16 +116,15 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        ArrayList<String> newArray = new ArrayList<String>(Arrays.asList(array));
-        for (int i = 0; i < newArray.size(); i++){
-            if (newArray.atIndex[i] == valueToRemove){
-                newArray.removeAll(<array>);
-            }
-        }
+        ArrayList<String> newArray = new ArrayList(Arrays.asList(array));
+
+        newArray.remove(valueToRemove);
+
+        String[] newNewArray = newArray.toArray(new String[0]);
 
 
 
-        return ;
+        return newNewArray;
     }
 
     /**
@@ -133,7 +132,30 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+//        //make an arraylist of the array
+//       /* ArrayList<String> newArray = new ArrayList<String>(Arrays.asList(array));
+//        //loop through the arraylist
+//        for (int i = 0; i < newArray.size() + 1; i++){
+//            //if statement should say that the element in index i gets compared to the one next to it
+//            //if they are equal, remove the initial one from the array
+//            if (newArray.size() == i ){
+//                break;
+//            }
+//            else if (newArray.indexOf(i) == newArray.indexOf(i + 1) /*|| newArray.get(i) == newArray.get(i + 2)){
+//               /* newArray.remove(newArray.indexOf(i));
+//            }*/
+//        }//initializing the new new array and making it into a modified version of the new array
+//        String[] newNewArray = newArray.toArray(new String[0]);
+//        return newNewArray;
+        ArrayList<String> newArray = new ArrayList<String>();
+        String newElement = "";
+        for (String element : array){
+            if (element != newElement){
+                newArray.add(element);
+            }
+            newElement = element;
+        }
+        return newArray.toArray(new String [0]);
     }
 
     /**
